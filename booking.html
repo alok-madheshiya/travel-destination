@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Book your dream vacation with WanderLust. Easy multi-step booking process for your perfect getaway.">
+    <title>Book Your Trip - WanderLust</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">WanderLust</a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="booking.html" class="active">Book Now</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Book Your Dream Trip</h1>
+            <p class="fade-in">Fill out the form below and we'll help you plan the perfect getaway</p>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="booking-section">
+        <div class="container">
+            <!-- Success Message (Hidden by default) -->
+            <div id="success-message" class="success-card" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h2>Booking Request Received!</h2>
+                <p>Thank you for choosing WanderLust. Our travel experts will contact you within 24 hours to finalize
+                    your dream vacation.</p>
+                <div class="success-details">
+                    <p>📧 A confirmation email has been sent to your inbox</p>
+                    <p>📞 Our team will reach out soon to discuss details</p>
+                </div>
+                <div class="mt-lg">
+                    <a href="index.html" class="btn btn-primary">Return Home</a>
+                    <a href="destinations.html" class="btn btn-secondary">Explore More</a>
+                </div>
+            </div>
+
+            <!-- Booking Form Container -->
+            <div id="booking-form-container">
+                <!-- Step Indicator -->
+                <div class="step-indicator fade-in">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Destination</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Travel Details</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Personal Info</div>
+                    </div>
+                </div>
+
+                <!-- Multi-Step Form -->
+                <form id="booking-form" class="booking-form glass fade-in">
+                    <!-- Step 1: Destination Selection -->
+                    <div class="form-step active">
+                        <h3 class="form-step-title">Choose Your Destination</h3>
+
+                        <div class="form-group">
+                            <label for="destination" class="form-label">Destination *</label>
+                            <select id="destination" name="destination" class="form-input" required>
+                                <option value="">Select a destination</option>
+                                <option value="maldives">Maldives</option>
+                                <option value="swiss-alps">Swiss Alps</option>
+                                <option value="prague">Prague</option>
+                                <option value="bali">Bali</option>
+                                <option value="dubai">Dubai</option>
+                                <option value="iceland">Iceland</option>
+                                <option value="other">Other (specify in comments)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget" class="form-label">Budget Level *</label>
+                            <select id="budget" name="budget" class="form-input" required>
+                                <option value="">Select your budget</option>
+                                <option value="budget">Budget ($500-$1,000)</option>
+                                <option value="moderate">Moderate ($1,000-$2,500)</option>
+                                <option value="luxury">Luxury ($2,500+)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interests" class="form-label">Travel Interests</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="adventure">
+                                    <span>Adventure</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="relaxation">
+                                    <span>Relaxation</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="culture">
+                                    <span>Culture</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="food">
+                                    <span>Food & Cuisine</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="nature">
+                                    <span>Nature</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary btn-next">Next Step →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Travel Details -->
+                    <div class="form-step">
+                        <h3 class="form-step-title">Travel Details</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="start-date" class="form-label">Departure Date *</label>
+                                <input type="date" id="start-date" name="start-date" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="end-date" class="form-label">Return Date *</label>
+                                <input type="date" id="end-date" name="end-date" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="travelers" class="form-label">Number of Travelers *</label>
+                                <select id="travelers" name="travelers" class="form-input" required>
+                                    <option value="1">1 Person</option>
+                                    <option value="2" selected>2 People</option>
+                                    <option value="3">3 People</option>
+                                    <option value="4">4 People</option>
+                                    <option value="5">5+ People</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="duration" class="form-label">Trip Duration (days)</label>
+                                <input type="number" id="duration" name="duration" class="form-input" min="1" max="60"
+                                    value="7">
+                            </div>
+                        </div>
+
+                        <div class="price-estimate-box">
+                            <span>Estimated Price:</span>
+                            <span class="price-estimate" id="price-estimate">$2,000</span>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary btn-prev">← Previous</button>
+                            <button type="button" class="btn btn-primary btn-next">Next Step →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Personal Information -->
+                    <div class="form-step">
+                        <h3 class="form-step-title">Your Information</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name" class="form-label">First Name *</label>
+                                <input type="text" id="first-name" name="first-name" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="last-name" class="form-label">Last Name *</label>
+                                <input type="text" id="last-name" name="last-name" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comments" class="form-label">Special Requests or Comments</label>
+                            <textarea id="comments" name="comments" class="form-textarea" rows="4"
+                                placeholder="Let us know if you have any special requirements..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" value="yes" checked>
+                                <span>Send me travel tips and exclusive offers</span>
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary btn-prev">← Previous</button>
+                            <button type="submit" id="submit-booking" class="btn btn-primary">Complete Booking</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Book With Us -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Book With Us</h2>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="feature-card slide-in-left">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Secure Booking</h3>
+                    <p>Your information is safe with our encrypted booking system.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💯</div>
+                    <h3>Best Price Guarantee</h3>
+                    <p>We ensure you get the best deals available.</p>
+                </div>
+
+                <div class="feature-card slide-in-right">
+                    <div class="feature-icon">🎧</div>
+                    <h3>24/7 Support</h3>
+                    <p>Our team is always here to help you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="logo">WanderLust</h3>
+                    <p>Your gateway to exploring the world's most incredible destinations.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="booking.html">Book a Trip</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 info@wanderlust.com</p>
+                    <p>📞 +1 (555) 123-4567</p>
+                    <p>📍 123 Travel Street, Adventure City</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2024</span> WanderLust. All rights reserved. | Made with ❤️ for
+                    travelers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/booking.js"></script>
+
+    <style>
+        /* Page Header */
+        .page-header {
+            background: var(--secondary-bg);
+            padding: calc(80px + var(--spacing-2xl)) 0 var(--spacing-2xl);
+            text-align: center;
+        }
+
+        .page-header p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            padding: var(--spacing-2xl) 0;
+        }
+
+        /* Step Indicator */
+        .step-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-xs);
+            opacity: 0.5;
+            transition: var(--transition-base);
+        }
+
+        .step.active,
+        .step.completed {
+            opacity: 1;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            transition: var(--transition-base);
+        }
+
+        .step.active .step-number {
+            background: var(--gradient-primary);
+            border-color: transparent;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .step.completed .step-number {
+            background: var(--accent-purple);
+            border-color: transparent;
+        }
+
+        .step-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .step-line {
+            width: 80px;
+            height: 2px;
+            background: var(--glass-border);
+        }
+
+        /* Booking Form */
+        .booking-form {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-step-title {
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: 0.75rem 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+
+        .checkbox-label:hover {
+            border-color: var(--accent-purple);
+        }
+
+        .checkbox-label input:checked~span {
+            color: var(--accent-purple);
+            font-weight: 600;
+        }
+
+        .price-estimate-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md);
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-md);
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .price-estimate {
+            font-size: 1.5rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+            justify-content: space-between;
+        }
+
+        .form-actions .btn {
+            flex: 1;
+        }
+
+        /* Success Card */
+        .success-card {
+            text-align: center;
+            padding: var(--spacing-2xl);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--glass-border);
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            margin: 0 auto var(--spacing-lg);
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .success-card h2 {
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .success-details {
+            margin: var(--spacing-lg) 0;
+            padding: var(--spacing-md);
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: var(--radius-md);
+        }
+
+        .success-details p {
+            margin: var(--spacing-xs) 0;
+            color: var(--text-secondary);
+        }
+
+        /* Features Section */
+        .features-section {
+            background: var(--secondary-bg);
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-purple);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: calc(70px + var(--spacing-xl)) 0 var(--spacing-xl);
+            }
+
+            .step-line {
+                width: 40px;
+            }
+
+            .step-label {
+                font-size: 0.75rem;
+            }
+
+            .booking-form {
+                padding: var(--spacing-md);
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+
+</html>
